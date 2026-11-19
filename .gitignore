@@ -1,0 +1,15 @@
+server/.venv/
+server/.bootstrap/
+server/.python/
+server/.cache/
+server/data/
+server/.requirements.sha256
+__pycache__/
+*.pyc
+dist/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db

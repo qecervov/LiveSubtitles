@@ -1,0 +1,19 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"><link rel="stylesheet" href="about.css"></head>
+<body><header><span class="logo">CC</span><div><h1>LiveSubtitles</h1><p>Перевод видео на вашем ПК</p></div></header>
+<div id="state" role="status">Проверяю подключение…</div>
+<label>Код подключения <input id="token" type="password" autocomplete="off" placeholder="Скопируйте со страницы сервера"></label>
+<div class="row"><label>Речь в видео<select id="source"><option value="en">Английский</option><option value="auto">Определять автоматически</option><option value="ru">Русский</option><option value="de">Немецкий</option><option value="fr">Французский</option><option value="es">Испанский</option><option value="it">Итальянский</option><option value="pt">Португальский</option><option value="ja">Японский</option><option value="ko">Корейский</option><option value="zh">Китайский</option><option value="uk">Украинский</option></select></label>
+<label>Субтитры<select id="language"><option value="ru">Русский</option><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="uk">Українська</option></select></label></div>
+<div class="row"><label>Размер текста<select id="fontSize"><option value="22">22 px</option><option value="28" selected>28 px</option><option value="36">36 px</option><option value="44">44 px</option></select></label>
+<label>Отступ снизу<select id="bottom"><option value="5">5%</option><option value="8" selected>8%</option><option value="15">15%</option><option value="25">25%</option></select></label></div>
+<label class="check"><input id="original" type="checkbox"> Показывать также оригинал</label>
+<div class="buttons"><button id="start">Начать перевод</button><button id="stop" class="secondary">Стоп</button></div>
+<a href="http://127.0.0.1:8765/setup" target="_blank" rel="noreferrer">Открыть локальный сервер ↗</a>
+<p class="hint">Сначала запустите START.cmd. Включите видео и нажмите «Начать». При смене языков остановите и запустите перевод заново.</p>
+<footer class="about">
+<details><summary>О проекте · <span id="about-version">0.1.0-alpha</span></summary>
+<p>LiveSubtitles переводит звук выбранной вкладки в субтитры на вашем ПК. Без подписки и API-ключей. Перевод появляется с задержкой в несколько секунд.</p>
+<p>Локально сохраняются модели, код подключения и настройки. Аудиозапись и история субтитров приложением не сохраняются.</p></details>
+<nav class="project-links" aria-label="Ссылки проекта"><a href="https://t.me/qecervov" target="_blank" rel="noopener noreferrer">Telegram автора ↗</a><a href="https://github.com/qecervov" target="_blank" rel="noopener noreferrer">GitHub автора ↗</a></nav>
+</footer>
+<script src="popup.js"></script></body></html>
