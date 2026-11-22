@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "whisper": {
+    "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-tiny-q5_1.bin",
+    "filename": "ggml-tiny-q5_1.bin",
+    "sha256": "818710568da3ca15689e31a743197b520007872ff9576237bda97bd1b469c3d7",
+    "bytes": 32152673
+  },
+  "translation": {
+    "url": "https://argos-net.com/v1/translate-en_ru-1_9.argosmodel",
+    "filename": "en-ru.argosmodel",
+    "sha256": "591d743ae103752b88ffc38785c50421320f4eff93c8967e0d3d2e14d4e27811",
+    "bytes": 195746693
+  }
+}

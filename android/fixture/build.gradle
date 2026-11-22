@@ -1,0 +1,6 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'org.livesubtitles.fixture'
+    compileSdk 35
+    defaultConfig { applicationId 'org.livesubtitles.fixture'; minSdk 29; targetSdk 35; versionCode 1; versionName '1.0' }
+}

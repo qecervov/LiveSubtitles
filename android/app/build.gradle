@@ -1,0 +1,55 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'org.livesubtitles.android'
+    compileSdk 35
+    ndkVersion '27.2.12479018'
+    defaultConfig {
+        applicationId 'org.livesubtitles.android'
+        minSdk 29
+        targetSdk 35
+        versionCode 3
+        versionName '0.1.2-android-alpha'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        ndk { abiFilters 'arm64-v8a', 'x86_64' }
+        externalNativeBuild {
+            cmake {
+                targets 'livesubtitles'
+                arguments '-DANDROID_STL=c++_shared',
+                    "-DNATIVE_ROOT=${System.getenv('LIVESUBTITLES_NATIVE_DIR') ?: rootProject.file('native').absolutePath}",
+                    '-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON',
+                    "-DPRIVATE_PATH_PREFIX=${System.getProperty('user.home').replace('\\', '/')}"
+                cppFlags '-std=c++17', '-O3'
+            }
+        }
+    }
+    signingConfigs {
+        localRelease {
+            def keyPath = System.getenv('LIVESUBTITLES_KEYSTORE')
+            if (keyPath) {
+                storeFile file(keyPath)
+                storePassword System.getenv('LIVESUBTITLES_STORE_PASSWORD')
+                keyAlias 'livesubtitles'
+                keyPassword System.getenv('LIVESUBTITLES_KEY_PASSWORD')
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (System.getenv('LIVESUBTITLES_KEYSTORE')) signingConfig signingConfigs.localRelease
+        }
+    }
+    externalNativeBuild { cmake { path 'src/main/cpp/CMakeLists.txt'; version '3.22.1' } }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    lint { abortOnError true }
+    packaging { jniLibs { useLegacyPackaging false } }
+    testBuildType 'release'
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.3.0'
+}

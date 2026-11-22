@@ -1,0 +1,17 @@
+{
+  "whisper": {
+    "url": "https://github.com/ggml-org/whisper.cpp.git",
+    "commit": "a8d002cfd879315632a579e73f0148d06959de36",
+    "version": "1.7.6"
+  },
+  "ctranslate2": {
+    "url": "https://github.com/OpenNMT/CTranslate2.git",
+    "commit": "0d8bcd362ac75ef860ef161d6f0efad0ae439ff0",
+    "version": "4.8.1"
+  },
+  "sentencepiece": {
+    "url": "https://github.com/google/sentencepiece.git",
+    "commit": "31646a467d2051eb904e0b45de3a73e91fe1c1e3",
+    "version": "0.2.1"
+  }
+}
